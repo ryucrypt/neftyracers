@@ -455,6 +455,10 @@ const unstake = async(division) => {
 }
 
 $(document).ready(async function() {
+    if (await wallet_isAutoLoginAvailable()) {
+        await login();
+    }
+
     for (const division of DIVISIONS) {
         CONFIG.scope = division;
         data = await wax.rpc.get_table_rows(CONFIG);
@@ -463,7 +467,6 @@ $(document).ready(async function() {
             config[row.template_id] = division;
         }
     }
-    
 });
 </script>
 </body>
