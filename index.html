@@ -292,7 +292,7 @@ const loading = (start) => {
 }
 
 const updateCountdown = () => {
-    var filtered = assets.filter(obj => obj.done == false);
+    var filtered = countdown_items.filter(obj => obj.done == false);
     filtered.forEach((item) => {
         let delta = countdown(item.unlock);
         $(item.id).text(formatTime(delta));
